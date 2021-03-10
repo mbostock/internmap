@@ -1,6 +1,6 @@
 {
   "name": "internmap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Map and Set with automatic key interning",
   "homepage": "https://github.com/mbostock/internmap/",
   "license": "ISC",
