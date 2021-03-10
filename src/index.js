@@ -1,8 +1,8 @@
 export class InternMap extends Map {
-  constructor(entries = [], key = keyof) {
+  constructor(entries, key = keyof) {
     super();
     Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
-    for (const [key, value] of entries) this.set(key, value);
+    if (entries != null) for (const [key, value] of entries) this.set(key, value);
   }
   get(key) {
     return super.get(intern_get(this, key));
@@ -19,10 +19,10 @@ export class InternMap extends Map {
 }
 
 export class InternSet extends Set {
-  constructor(values = [], key = keyof) {
+  constructor(values, key = keyof) {
     super();
     Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
-    for (const value of values) this.add(value);
+    if (values != null) for (const value of values) this.add(value);
   }
   has(value) {
     return super.has(intern_get(this, value));

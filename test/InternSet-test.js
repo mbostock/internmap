@@ -14,6 +14,10 @@ tape("InternSet is an instanceof Set", test => {
   test.ok(new InternSet() instanceof Set);
 });
 
+tape("InternSet(null) returns an empty set", test => {
+  test.equal(new InternSet(null).size, 0);
+});
+
 basicTest("strings", "a", "b", "c");
 basicTest("numbers", 1, 2, 3);
 basicTest("dates", new Date(Date.UTC(2001, 0, 1)), new Date(Date.UTC(2002, 0, 1)), new Date(Date.UTC(2003, 0, 1)));
