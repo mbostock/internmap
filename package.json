@@ -26,7 +26,7 @@
     "src/**/*.js"
   ],
   "scripts": {
-    "test": "mocha --experimental-modules 'test/**/*-test.js' && eslint src test",
+    "test": "mocha 'test/**/*-test.js' && eslint src test",
     "prepublishOnly": "rm -rf dist && yarn test && rollup -c",
     "postpublish": "git push && git push --tags"
   },
