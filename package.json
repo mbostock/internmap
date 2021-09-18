@@ -32,9 +32,9 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "eslint": "^7.18.0",
-    "mocha": "^8.4.0",
-    "rollup": "^2.37.1",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.1",
+    "rollup": "^2.56.3",
     "rollup-plugin-terser": "^7.0.2"
   },
   "engines": {
