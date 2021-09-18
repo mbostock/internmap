@@ -33,6 +33,8 @@ function basicTest(name, a, b, c) {
     assert.strictEqual(set.has(a), true);
     assert.strictEqual(set.has(b), true);
     assert.strictEqual(set.has(c), false);
+    assert.strictEqual(set.delete(b), true);
+    assert.strictEqual(set.has(b), false);
   });
 }
 
@@ -43,8 +45,14 @@ it(`InternSet(values) returns the first of heterogeneous types`, () => {
   assert.strictEqual(set1.has(x), true);
   assert.strictEqual(set1.has(d), true);
   assert.deepStrictEqual([...set1.values()], [x]);
+  assert.strictEqual(set1.delete(x), true);
+  assert.strictEqual(set1.has(x), false);
+  assert.strictEqual(set1.has(d), false);
   const set2 = new InternSet([d, x]);
   assert.strictEqual(set2.has(x), true);
   assert.strictEqual(set2.has(d), true);
   assert.deepStrictEqual([...set2.values()], [d]);
+  assert.strictEqual(set2.delete(d), true);
+  assert.strictEqual(set2.has(x), false);
+  assert.strictEqual(set2.has(d), false);
 });

@@ -37,6 +37,9 @@ function basicTest(name, a, b, c) {
     assert.strictEqual(map.get(a), 1);
     assert.strictEqual(map.get(b), 2);
     assert.strictEqual(map.get(c), undefined);
+    assert.strictEqual(map.delete(b), true);
+    assert.strictEqual(map.has(b), false);
+    assert.strictEqual(map.get(b), undefined);
   });
 }
 
@@ -47,8 +50,14 @@ it(`InternMap(entries) returns the first of heterogeneous types`, () => {
   assert.strictEqual(map1.get(x), "date");
   assert.strictEqual(map1.get(d), "date");
   assert.deepStrictEqual([...map1.entries()], [[x, "date"]]);
+  assert.strictEqual(map1.delete(x), true);
+  assert.strictEqual(map1.has(x), false);
+  assert.strictEqual(map1.has(d), false);
   const map2 = new InternMap([[d, "date"], [x, "number"]]);
   assert.strictEqual(map2.get(x), "number");
   assert.strictEqual(map2.get(d), "number");
   assert.deepStrictEqual([...map2.entries()], [[d, "number"]]);
+  assert.strictEqual(map2.delete(x), true);
+  assert.strictEqual(map2.has(x), false);
+  assert.strictEqual(map2.has(d), false);
 });

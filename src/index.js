@@ -50,7 +50,7 @@ function intern_set({_intern, _key}, value) {
 function intern_delete({_intern, _key}, value) {
   const key = _key(value);
   if (_intern.has(key)) {
-    value = _intern.get(value);
+    value = _intern.get(key);
     _intern.delete(key);
   }
   return value;
