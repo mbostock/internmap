@@ -14,8 +14,11 @@
   "jsdelivr": "dist/internmap.min.js",
   "unpkg": "dist/internmap.min.js",
   "exports": {
-    "umd": "./dist/internmap.min.js",
-    "default": "./src/index.js"
+    "./package.json": "./package.json",
+    ".": {
+      "umd": "./dist/internmap.min.js",
+      "default": "./src/index.js"
+    }
   },
   "repository": {
     "type": "git",
